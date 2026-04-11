@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-07Y0CEPJY3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-07Y0CEPJY3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inne Zastosowania Wodoru</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/zastosowania.css">
+    <link rel="stylesheet" href="css/lang-switch.css">
+</head>
+
+<body>
+    <div class="lang-switch-container">
+        <span class="lang-switch-label" id="lang-pl">PL</span>
+        <label class="switch">
+            <input type="checkbox" id="lang-switch-checkbox" onchange="toggleLanguage()">
+            <span class="slider"></span>
+        </label>
+        <span class="lang-switch-label" id="lang-en">EN</span>
+    </div>
+    <div class="app-container">
+        <a href="index.html" class="back-link"><i data-lucide="chevron-left"></i> <span data-i18n="back_menu">Wróć do menu</span></a>
+
+        <header class="section-header">
+            <h2 class="purple-text" data-i18n="zast_header">Inne Zastosowania Wodoru</h2>
+            <p data-i18n="zast_subheader">Kliknij w poniższe ikony, aby odkryć, jak wodór zmienia różne gałęzie przemysłu.</p>
+        </header>
+
+        <div class="tabs-container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="openTab('transport', event)">
+                    <i data-lucide="train"></i> <span data-i18n="tab_transport">Transport</span>
+                </button>
+                <button class="tab-btn" onclick="openTab('hutnictwo', event)">
+                    <i data-lucide="factory"></i> <span data-i18n="tab_metallurgy">Hutnictwo</span>
+                </button>
+                <button class="tab-btn" onclick="openTab('kosmos', event)">
+                    <i data-lucide="rocket"></i> <span data-i18n="tab_space">Kosmos</span>
+                </button>
+                <button class="tab-btn" onclick="openTab('medycyna', event)">
+                    <i data-lucide="heart-pulse"></i> <span data-i18n="tab_medicine">Medycyna</span>
+                </button>
+                <button class="tab-btn" onclick="openTab('rolnictwo', event)">
+                    <i data-lucide="sprout"></i> <span data-i18n="tab_agriculture">Rolnictwo</span>
+                </button>
+            </div>
+
+            <div class="tab-content-area card purple">
+
+                <div id="transport" class="tab-panel active">
+                    <div class="image-wrapper">
+                        <img src="img/transport.webp" alt="Pociąg wodorowy" class="tab-banner"
+                            style="object-position: center 10%;">
+                        <a href="https://www.bloomberg.com/news/articles/2021-04-23/europe-debuts-hydrogen-passenger-trains-in-zero-carbon-push"
+                            target="_blank" rel="noopener noreferrer" class="source-link" data-i18n="source">Źródło</a>
+                    </div>
+                    <h3 data-i18n="trans_h3">Transport Ciężki i Dalekobieżny</h3>
+                    <p data-i18n="trans_p">Baterie elektryczne (jak w autach Tesli) są świetne do osobówek, ale w ciężarówkach i pociągach
+                        ważyłyby zbyt wiele. Tutaj wkracza wodór.</p>
+                    <ul class="feature-list">
+                        <li><strong data-i18n="trans_li1_strong">Pociągi wodorowe:</strong><span data-i18n="trans_li1"> Składy takie jak <em>Alstom Coradia iLint</em> już
+                            kursują w Europie, zastępując lokomotywy spalinowe tam, gdzie nie ma trakcji elektrycznej.</span>
+                        </li>
+                        <li><strong data-i18n="trans_li2_strong">Szybkie tankowanie:</strong><span data-i18n="trans_li2"> Zamiast ładować baterię przez kilka godzin, zbiornik
+                            wodoru w ciężarówce napełnia się w kilkanaście minut.</span></li>
+                        <li><strong data-i18n="trans_li3_strong">Zasięg:</strong><span data-i18n="trans_li3"> Pojazdy na ogniwa paliwowe mogą pokonać ponad 1000 km na jednym
+                            tankowaniu.</span></li>
+                    </ul>
+                </div>
+
+                <div id="hutnictwo" class="tab-panel">
+                    <div class="image-wrapper">
+                        <img src="img/hutnictwo.webp" alt="Huta żelaza" class="tab-banner"
+                            style="object-position: center 60%;">
+                        <a href="https://www.cpr.org/2020/03/19/boomtimes-and-long-declines-shadow-pueblos-most-iconic-industry/"
+                            target="_blank" rel="noopener noreferrer" class="source-link" data-i18n="source">Źródło</a>
+                    </div>
+                    <h3 data-i18n="hut_h3">Hutnictwo i Zielona Stal (Proces DRI)</h3>
+                    <p data-i18n="hut_p">Produkcja stali odpowiada za ok. 7-9% globalnej emisji CO<sub>2</sub>. Tradycyjnie do redukcji
+                        rudy żelaza używa się węgla koksowego. Można to zmienić, używając wodoru.</p>
+                    <div class="math-box">
+                        <span data-i18n="hut_math">Reakcja redukcji wodorem:</span>
+                        <div class="chemical-equation">Fe<sub>2</sub>O<sub>3</sub> + 3H<sub>2</sub> → 2Fe +
+                            3H<sub>2</sub>O</div>
+                    </div>
+                    <ul class="feature-list">
+                        <li><strong data-i18n="hut_li1_strong">Brak CO<sub>2</sub>:</strong><span data-i18n="hut_li1"> Produktem ubocznym jest para wodna (H<sub>2</sub>O), a
+                            nie dwutlenek węgla.</span></li>
+                        <li><strong data-i18n="hut_li2_strong">Potężny popyt:</strong><span data-i18n="hut_li2"> Przemysł chemiczny (nawozy) i rafineryjny to dziś najwięksi
+                            konsumenci wodoru.</span></li>
+                    </ul>
+                </div>
+
+                <div id="kosmos" class="tab-panel">
+                    <div class="image-wrapper">
+                        <img src="img/kosmos.webp" alt="Rakieta wodorowa" class="tab-banner">
+                        <a href="https://spacenews.com/spacex-performs-first-test-of-raptor-engine/" target="_blank"
+                            rel="noopener noreferrer" class="source-link" data-i18n="source">Źródło</a>
+                    </div>
+                    <h3 data-i18n="kos_h3">Najpotężniejsze Paliwo Rakietowe</h3>
+                    <p data-i18n="kos_p">Gdy liczy się każdy gram masy, inżynierowie kosmiczni sięgają po wodór. Ciekły wodór
+                        (LH<sub>2</sub>) w połączeniu z ciekłym tlenem (LOX) daje bardzo wysoką efektywność.</p>
+                    <ul class="feature-list">
+                        <li><strong data-i18n="kos_li1_strong">Niska temperatura:</strong><span data-i18n="kos_li1"> Aby wodór stał się cieczą, trzeba go schłodzić do ok.
+                            <strong>-253°C</strong>.</span>
+                        </li>
+                        <li><strong data-i18n="kos_li2_strong">Historia:</strong><span data-i18n="kos_li2"> To paliwo napędzało górne stopnie rakiety <em>Saturn V</em> w
+                            misjach Apollo.</span></li>
+                        <li><strong data-i18n="kos_li3_strong">Teraźniejszość:</strong><span data-i18n="kos_li3"> Także nowoczesne systemy rakietowe wykorzystują ciekły
+                            wodór.</span></li>
+                    </ul>
+                </div>
+
+                <div id="medycyna" class="tab-panel">
+                    <div class="image-wrapper">
+                        <img src="img/medycyna.webp" alt="Zastosowanie wodoru w medycynie" class="tab-banner"
+                            style="object-position: center 55%;">
+                        <a href="https://www.marketresearchintellect.com/blog/hydrogen-peroxide-in-medicine-market-surge-reflects-growing-healthcare-demand/"
+                            target="_blank" rel="noopener noreferrer" class="source-link" data-i18n="source">Źródło</a>
+                    </div>
+                    <h3 data-i18n="med_h3">Medycyna i technologie medyczne</h3>
+                    <p data-i18n="med_p">Wodór jest badany jako wsparcie terapii związanych ze stresem oksydacyjnym i stanem zapalnym. W
+                        farmacji uczestniczy też w procesach syntezy wybranych substancji czynnych.</p>
+                    <ul class="feature-list">
+                        <li><strong data-i18n="med_li1_strong">Badania kliniczne:</strong><span data-i18n="med_li1"> Analizuje się jego potencjał ochronny m.in. w chorobach
+                            zapalnych i neurologicznych.</span></li>
+                        <li><strong data-i18n="med_li2_strong">Produkcja leków:</strong><span data-i18n="med_li2"> Bierze udział w reakcjach uwodorniania, ważnych przy
+                            wytwarzaniu związków farmaceutycznych.</span></li>
+                        <li><strong data-i18n="med_li3_strong">Infrastruktura szpitalna:</strong><span data-i18n="med_li3"> Ogniwa paliwowe mogą zapewnić awaryjne zasilanie
+                            aparatury medycznej.</span></li>
+                    </ul>
+                </div>
+
+                <div id="rolnictwo" class="tab-panel">
+                    <div class="image-wrapper">
+                        <img src="img/rolnictwo.webp" alt="Przemysł chemiczny i produkcja amoniaku" class="tab-banner"
+                            style="object-position: center 70%;">
+                        <a href="https://news.stanford.edu/stories/2024/12/new-device-produces-critical-fertilizer-ingredient-from-thin-air"
+                            target="_blank" rel="noopener noreferrer" class="source-link" data-i18n="source">Źródło</a>
+                    </div>
+                    <h3 data-i18n="rol_h3">Produkcja nawozów</h3>
+                    <p data-i18n="rol_p">Wodór jest kluczowy w produkcji amoniaku (NH<sub>3</sub>) w procesie Habera-Boscha. Amoniak to
+                        podstawa nawozów azotowych, dlatego ten proces ma ogromne znaczenie dla rolnictwa i globalnej
+                        produkcji żywności.</p>
+                    <div class="math-box">
+                        <span data-i18n="rol_math">Synteza amoniaku (Haber-Bosch):</span>
+                        <div class="chemical-equation">N<sub>2</sub> + 3H<sub>2</sub> → 2NH<sub>3</sub></div>
+                    </div>
+                    <ul class="feature-list">
+                        <li><strong data-i18n="rol_li1_strong">Nawozy azotowe:</strong><span data-i18n="rol_li1"> Większość przemysłowej produkcji amoniaku trafia do nawozów
+                            wspierających plony.</span></li>
+                        <li><strong data-i18n="rol_li2_strong">Surowiec chemiczny:</strong><span data-i18n="rol_li2"> Amoniak i pochodne związki azotu są wykorzystywane
+                            również w tworzywach, chemii gospodarczej i przemyśle.</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/localization.js"></script>
+    <script src="js/zastosowania.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-07Y0CEPJY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-07Y0CEPJY3');
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Energii - Projekt Wodór</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/kalkulator.css">
+    <link rel="stylesheet" href="css/lang-switch.css">
+</head>
+<body>
+    <div class="lang-switch-container">
+        <span class="lang-switch-label" id="lang-pl">PL</span>
+        <label class="switch">
+            <input type="checkbox" id="lang-switch-checkbox" onchange="toggleLanguage()">
+            <span class="slider"></span>
+        </label>
+        <span class="lang-switch-label" id="lang-en">EN</span>
+    </div>
+    <div class="calc-container">
+        <a href="index.html" class="back-link"><i data-lucide="chevron-left"></i> <span data-i18n="back_menu">Wróć do menu</span></a>
+        
+        <div class="card green">
+            <h2 class="card-title" data-i18n="kalkulator_page_title">Kalkulator Wydajności</h2>
+            <p class="card-description" data-i18n="kalkulator_page_desc">Wpisz wartość nadwyżki energii, aby zobaczyć potencjał magazynowania w wodorze.</p>
+            
+            <div class="input-group">
+                <label data-i18n="input_label">Nadwyżka energii z OZE (kWh):</label>
+                <div class="custom-number-input">
+                    <button type="button" class="spin-btn" onclick="stepDown()">
+                        <i data-lucide="minus"></i>
+                    </button>
+                    <input type="number" id="energyInput" value="50" min="0">
+                    <button type="button" class="spin-btn" onclick="stepUp()">
+                        <i data-lucide="plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <button class="btn-calc" onclick="calculate()" data-i18n="btn_calc">Oblicz wynik</button>
+
+            <div id="results" class="results">
+                <div class="res-item">
+                    <span data-i18n="result_recovered">Energia po odzyskaniu:</span> 
+                    <strong id="energyOut">0.00 kWh</strong>
+                </div>
+                <div class="res-item">
+                    <span data-i18n="result_loss">Straty procesu:</span> 
+                    <strong id="loss">0.00 kWh</strong>
+                </div>
+
+                <div class="expand-trigger" onclick="toggleDetails()">
+                    <span id="expand-text" data-i18n="expand_text_show">Pokaż szczegóły</span>
+                    <i data-lucide="chevron-down" id="expand-icon"></i>
+                </div>
+
+                <div id="details-wrapper" class="details-wrapper">
+                    <div id="details" class="details-content">
+                        <div class="res-item">
+                            <span data-i18n="detail_h2_mass">Wygenerowany wodór (H₂):</span> 
+                            <strong id="h2Mass">0.000 kg</strong>
+                        </div>
+                        <div class="res-item">
+                            <span data-i18n="detail_home_days">Zasilanie domu (12 kWh/d):</span> 
+                            <strong id="homeDays">0 dni</strong>
+                        </div>
+                        <div class="res-item">
+                            <span data-i18n="detail_efficiency">Wydajność vs Pompowo-szczytowa:</span> 
+                            <strong style="color: #ff9800;" data-i18n="efficiency_value">ok. 30% niższa</strong>
+                        </div>
+                        <p class="info-note" data-i18n="info_note">Wodór pozwala na długoterminowe magazynowanie energii bez strat samoistnych, co jest kluczowe w cyklach sezonowych.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/localization.js"></script>
+    <script src="js/kalkulator.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

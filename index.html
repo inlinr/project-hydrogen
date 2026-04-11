@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-07Y0CEPJY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-07Y0CEPJY3');
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pętla Wodorowa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lang-switch.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="lang-switch-container">
+        <span class="lang-switch-label" id="lang-pl">PL</span>
+        <label class="switch">
+            <input type="checkbox" id="lang-switch-checkbox" onchange="toggleLanguage()">
+            <span class="slider"></span>
+        </label>
+        <span class="lang-switch-label" id="lang-en">EN</span>
+    </div>
+    <canvas id="bgCanvas"></canvas>
+    <header>
+        <h1 data-i18n="title_main">Magazynowanie Energii: Pętla Wodorowa</h1>
+        <p data-i18n="subtitle_main">Od wody morskiej do czystej energii.</p>
+    </header>
+
+    <main class="card-grid">
+
+        <a href="przewodnik.html">
+            <div class="card blue">
+                <div class="card-icon">
+                    <i data-lucide="refresh-cw"></i>
+                </div>
+                <h2 class="card-title" data-i18n="przewodnik_title">Przewodnik po Cyklu</h2>
+                <p class="card-description" data-i18n="przewodnik_desc">Poznaj chemiczną drogę od elektrolizy wody morskiej po opad deszczu.</p>
+            </div>
+        </a>
+
+        <a href="kalkulator.html">
+            <div class="card green">
+                <div class="card-icon">
+                    <i data-lucide="zap"></i>
+                </div>
+                <h2 class="card-title" data-i18n="kalkulator_title">Kalkulator Energii</h2>
+                <p class="card-description" data-i18n="kalkulator_desc">Oblicz wydajność magazynowania energii na podstawie nadwyżek z OZE.</p>
+            </div>
+        </a>
+
+        <a href="zastosowania.html">
+            <div class="card purple">
+                <div class="card-icon">
+                    <i data-lucide="rocket"></i>
+                </div>
+                <h2 class="card-title" data-i18n="zastosowania_title">Inne Zastosowania</h2>
+                <p class="card-description" data-i18n="zastosowania_desc">Wodór w przemyśle, transporcie i jako paliwo rakietowe.</p>
+            </div>
+        </a>
+
+    </main>
+    <script src="js/localization.js"></script>
+    <script src="js/animation.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+
+
