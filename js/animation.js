@@ -17,21 +17,25 @@ class Particle {
         const baseV = 1.2;
         this.vx = (Math.random() - 0.5) * baseV;
         this.vy = (Math.random() - 0.5) * baseV;
+        this.angle = Math.random() * Math.PI * 2;
     }
 
     get radius() {
-        return this.type.startsWith('O') ? 18 : 12;
+        if (this.type === 'O2') return 32;
+        if (this.type === 'H2') return 22;
+        return this.type === 'O' ? 18 : 12;
     }
 
-    get text() {
-        if (this.type === 'O2') return 'O₂';
-        if (this.type === 'H2') return 'H₂';
-        return this.type;
+    get atomRadius() {
+        return this.type.startsWith('O') ? 18 : 12;
     }
 
     update() {
         this.x += this.vx;
         this.y += this.vy;
+        if (this.type === 'O2' || this.type === 'H2') {
+            this.angle += 0.02;
+        }
 
         // Keep inside bounds
         if (this.x < this.radius) { this.x = this.radius; this.vx *= -1; }
@@ -41,19 +45,46 @@ class Particle {
     }
 
     draw(ctx) {
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = this.type.startsWith('O') ? '#ef4444' : '#93c5fd';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = this.type.startsWith('O') ? '#ef4444' : '#93c5fd';
-        ctx.fill();
-        ctx.shadowBlur = 0;
+        const color = this.type.startsWith('O') ? '#ef4444' : '#93c5fd';
+        const label = this.type.startsWith('O') ? 'O' : 'H';
+        const font = this.type.startsWith('O') ? '600 16px Poppins, sans-serif' : '600 12px Poppins, sans-serif';
+        const aRadius = this.atomRadius;
 
-        ctx.fillStyle = '#ffffff';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.font = this.type.startsWith('O') ? '600 16px Poppins, sans-serif' : '600 12px Poppins, sans-serif';
-        ctx.fillText(this.text, this.x, this.y);
+        if (this.type === 'O2' || this.type === 'H2') {
+            const offset = aRadius * 0.8;
+            for (let i = -1; i <= 1; i += 2) {
+                const px = this.x + Math.cos(this.angle) * offset * i;
+                const py = this.y + Math.sin(this.angle) * offset * i;
+                
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = color;
+                ctx.beginPath();
+                ctx.arc(px, py, aRadius, 0, Math.PI * 2);
+                ctx.fillStyle = color;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+
+                ctx.fillStyle = '#ffffff';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.font = font;
+                ctx.fillText(label, px, py);
+            }
+        } else {
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, aRadius, 0, Math.PI * 2);
+            ctx.fillStyle = color;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.font = font;
+            ctx.fillText(label, this.x, this.y);
+        }
     }
 }
 
@@ -98,8 +129,8 @@ class WaterMolecule {
         // Draw Hydrogens WITHOUT lines
         for (let i = 0; i < 2; i++) {
             const hAngle = this.angle + (i === 0 ? 0.7 : -0.7);
-            const hx = this.x + Math.cos(hAngle) * 32;
-            const hy = this.y + Math.sin(hAngle) * 32;
+            const hx = this.x + Math.cos(hAngle) * 22;
+            const hy = this.y + Math.sin(hAngle) * 22;
 
             ctx.shadowBlur = 10;
             ctx.shadowColor = '#93c5fd';
